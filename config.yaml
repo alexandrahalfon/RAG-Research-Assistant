@@ -1,0 +1,105 @@
+# RAG Research Assistant Configuration
+
+# Application settings
+app:
+  name: "RAG Research Assistant"
+  version: "0.1.0"
+  debug: false
+  max_results: 10
+  default_timeout: 30
+
+# Database settings (local SQLite)
+database:
+  path: "data/research_assistant.db"
+  backup_enabled: true
+  backup_interval_hours: 24
+
+# Vector database settings (ChromaDB)
+vector_db:
+  persist_directory: "data/chroma_db"
+  collection_name: "research_papers"
+  embedding_model: "all-MiniLM-L6-v2"
+  similarity_threshold: 0.7
+
+# Academic API settings (all free)
+apis:
+  arxiv:
+    base_url: "http://export.arxiv.org/api/query"
+    max_results: 100
+    rate_limit_delay: 3  # seconds between requests
+    
+  pubmed:
+    base_url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+    email: ""  # Required for PubMed API - add your email here
+    tool: "rag-research-assistant"
+    max_results: 100
+    rate_limit_delay: 0.34  # 3 requests per second max
+    
+  semantic_scholar:
+    base_url: "https://api.semanticscholar.org/graph/v1"
+    max_results: 100
+    rate_limit_delay: 3  # 100 requests per 5 minutes
+    api_key: ""  # Optional API key for higher limits
+    
+  openalex:
+    base_url: "https://api.openalex.org"
+    max_results: 100
+    rate_limit_delay: 0.1  # 10 requests per second max
+    email: ""  # Polite pool access - add your email here
+    
+  crossref:
+    base_url: "https://api.crossref.org"
+    max_results: 100
+    rate_limit_delay: 1  # Be respectful
+    
+  google_scholar:
+    max_results: 10
+    rate_limit_delay: 10.0  # Use sparingly to avoid blocking
+    
+
+
+# Ranking algorithm weights
+ranking:
+  semantic_similarity_weight: 0.40
+  citation_count_weight: 0.25
+  venue_impact_weight: 0.15
+  recency_weight: 0.10
+  user_preference_weight: 0.10
+
+# Text processing settings
+text_processing:
+  max_abstract_length: 2000
+  min_abstract_length: 50
+  summary_max_length: 500
+  summary_min_length: 100
+
+# Caching settings
+cache:
+  enabled: true
+  ttl_hours: 24
+  max_size_mb: 500
+  cache_dir: "data/cache"
+
+# Performance monitoring settings
+performance_monitoring:
+  enabled: true
+  log_file: "logs/performance.log"
+  max_history: 1000
+  alert_thresholds:
+    duration: 30.0  # seconds
+    memory: 500.0   # MB
+    error_rate: 0.1  # 10%
+
+# Advanced search settings
+advanced_search:
+  min_citation_threshold: 5
+  recency_weight: 0.3
+  venue_quality_weight: 0.2
+  diversity_threshold: 0.7
+
+# Logging settings
+logging:
+  level: "INFO"
+  file: "logs/research_assistant.log"
+  max_file_size_mb: 10
+  backup_count: 5
