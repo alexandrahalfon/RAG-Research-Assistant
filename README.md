@@ -4,7 +4,7 @@ An AI-powered research assistant that uses **Retrieval-Augmented Generation (RAG
 
 ## ✨ Features
 
-- **🌐 Modern Web Interface**: Beautiful, responsive web dashboard with real-time search
+- **🌐 Modern Web Interface**: Responsive web dashboard with real-time search
 - **🔍 Multi-Source Search**: Searches arXiv, CrossRef, and Semantic Scholar
 - **🎯 Advanced Relevance Ranking**: Multi-factor scoring with phrase matching and semantic similarity
 - **🤖 RAG Pipeline**: Vector embeddings with ChromaDB and FAISS for semantic search
