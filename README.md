@@ -10,7 +10,6 @@ An AI-powered research assistant that uses **Retrieval-Augmented Generation (RAG
 - **🤖 RAG Pipeline**: Vector embeddings with ChromaDB and FAISS for semantic search
 - **📊 Real-time Results**: Live search with relevance scores and detailed paper metadata
 - **🆓 100% Free**: Uses only free APIs and local vector databases
-- **🛡️ Graceful Degradation**: Continues working even when some components fail
 
 ## 🚀 Quick Start
 
